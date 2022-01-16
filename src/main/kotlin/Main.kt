@@ -1,9 +1,9 @@
 class RainDeer(
 
-    val name: String,
-    val speed: Int = 0,
-    val rest: Int = 0,
-    val duration: Int = 0
+    private val name: String,
+    private val speed: Int = 0,
+    private val rest: Int = 0,
+    private val duration: Int = 0
 
 ) {
     override fun toString(): String {
@@ -11,11 +11,11 @@ class RainDeer(
     }
 
     fun getDistance(): Int {
-        var time: Int = 2503
-        var distance: Int = 0
+        var time = 2503
+        var distance = 0
         while (time >= 0) {
-            var duration:Int = this.duration
-            while(duration != 0) {
+            var duration: Int = this.duration
+            while (duration != 0) {
                 distance += this.speed
                 duration--
 
@@ -42,8 +42,8 @@ fun main() {
             "Dancer can fly 3 km/s for 16 seconds, but then must rest for 37 seconds.\n" +
             "Prancer can fly 25 km/s for 6 seconds, but then must rest for 143 seconds."
     val lines = input.split("\n")
-    var raindeers = mutableListOf<RainDeer>()
-    var first = mutableListOf<Int>()
+    val raindeers = mutableListOf<RainDeer>()
+    val first = mutableListOf<Int>()
 
     for (i in lines) {
         val words = i.split(" ")
