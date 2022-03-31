@@ -2,24 +2,23 @@ import java.util.*
 import kotlin.collections.Iterator
 
 class HashTable<T> {
-    val arrayOfList: Array<LinkedList<T>> = Array(2) { LinkedList() }
+    private val arrOfLinkedLists: Array<LinkedList<T>> = Array(2) { LinkedList() }
 
     fun add(number: T): Boolean {
-        if (arrayOfList[number.hashCode() % arrayOfList.size].contains(number)) {
-            arrayOfList[number.hashCode() % arrayOfList.size].add(number)
+        if (arrOfLinkedLists[number.hashCode() % arrOfLinkedLists.size].contains(number)) {
+            arrOfLinkedLists[number.hashCode() % arrOfLinkedLists.size].add(number)
             return true
-        }
-        else return false
+        } else return false
     }
 
-    fun has(number: T): Boolean = arrayOfList[number.hashCode() % arrayOfList.size].contains(number)
+    fun has(number: T): Boolean = arrOfLinkedLists[number.hashCode() % arrOfLinkedLists.size].contains(number)
 
 
-    fun delete(value: T): Boolean = arrayOfList[value.hashCode() % arrayOfList.size].remove(value)
+    fun delete(value: T): Boolean = arrOfLinkedLists[value.hashCode() % arrOfLinkedLists.size].remove(value)
 
-    fun size(): Int = arrayOfList.sumOf { it.size }
+    fun size(): Int = arrOfLinkedLists.sumOf { it.size }
 
-    fun iterator(): Iterator<T> = arrayOfList.asSequence().flatten().iterator()
+    fun iterator(): Iterator<T> = arrOfLinkedLists.asSequence().flatten().iterator()
 
 }
 
