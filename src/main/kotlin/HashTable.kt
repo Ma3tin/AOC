@@ -1,4 +1,5 @@
 import java.util.*
+import kotlin.collections.Iterator
 
 class HashTable<T> {
     val arrayOfList: Array<LinkedList<T>> = Array(2) { LinkedList() }
@@ -11,14 +12,19 @@ class HashTable<T> {
         else return false
     }
 
-    fun has(number: T): Boolean {
-        return arrayOfList[number.hashCode() % arrayOfList.size].contains(number)
-    }
+    fun has(number: T): Boolean = arrayOfList[number.hashCode() % arrayOfList.size].contains(number)
+
+
+    fun delete(value: T): Boolean = arrayOfList[value.hashCode() % arrayOfList.size].remove(value)
+
+    fun size(): Int = arrayOfList.sumOf { it.size }
+
+    fun iterator(): Iterator<T> = arrayOfList.asSequence().flatten().iterator()
 
 }
 
 fun main() {
-    var table: HashTable = HashTable()
+    val table: HashTable<Int> = HashTable()
     table.add(7)
     table.add(8)
     table.add(9)
