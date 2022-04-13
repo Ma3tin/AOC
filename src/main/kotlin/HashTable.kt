@@ -18,11 +18,6 @@ class HashTable<T> {
 }
 
 fun main() {
-    var table: HashTable = HashTable()
-    table.add(7)
-    table.add(8)
-    table.add(9)
-    table.add(10)
-    println(table.has(9))
+
 }
 
