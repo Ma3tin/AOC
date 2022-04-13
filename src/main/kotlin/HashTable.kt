@@ -18,7 +18,7 @@ class HashTable<T> {
 }
 
 fun main() {
-    var table: HashTable<Int> = HashTable()
+    val table: HashTable<Int> = HashTable()
     table.add(7)
     table.add(8)
     table.add(9)
