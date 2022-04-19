@@ -39,5 +39,5 @@ fun simplify(first: Fraction): Fraction {
 }
 
 fun toFloat(first: Fraction): Float {
-    return first.numerator as Float / first.denominator
+    return first.numerator.toFloat() / first.denominator.toFloat()
 }
