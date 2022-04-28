@@ -3,30 +3,31 @@ package fractions
 data class Fraction(var numerator: Int, var denominator: Int)
 
 
-fun plus(first: Fraction, other: Fraction): Fraction {
-    val smallestMultiple = findLowestCommonMultiple(first.denominator, other.denominator)
-    val firstNumerator: Int = smallestMultiple / first.denominator
+operator fun Fraction.plus(other: Fraction): Fraction {
+    val smallestMultiple = findLowestCommonMultiple(this.denominator, other.denominator)
+    val firstNumerator: Int = smallestMultiple / this.denominator
     val secondNumerator: Int = smallestMultiple / other.denominator
-    val nominator: Int = firstNumerator * first.numerator + secondNumerator * other.numerator
+    val nominator: Int = firstNumerator * this.numerator + secondNumerator * other.numerator
     return simplify(Fraction(nominator, smallestMultiple))
 }
 
-fun minus(first: Fraction, other: Fraction): Fraction {
-    val smallestMultiple: Int = findLowestCommonMultiple(first.denominator, other.denominator)
-    val firstNumerator: Int = smallestMultiple / first.denominator
+operator fun Fraction.minus(other: Fraction):Fraction {
+    val smallestMultiple: Int = findLowestCommonMultiple(this.denominator, other.denominator)
+    val firstNumerator: Int = smallestMultiple / this.denominator
     val secondNumerator = smallestMultiple / other.denominator
-    val nominator: Int = firstNumerator * first.numerator - secondNumerator * other.numerator
+    val nominator: Int = firstNumerator * this.numerator - secondNumerator * other.numerator
     return simplify(Fraction(nominator, smallestMultiple))
 }
 
-fun times(first: Fraction, other: Fraction): Fraction {
-    val newNumerator: Int = first.numerator * other.numerator
-    val newDenominator: Int = first.denominator * other.denominator
+operator fun Fraction.times(other: Fraction):Fraction {
+    val newNumerator: Int = this.numerator * other.numerator
+    val newDenominator: Int = this.denominator * other.denominator
     return simplify(Fraction(newNumerator, newDenominator))
+
 }
 
-fun dividedBy(first: Fraction, other: Fraction): Fraction {
-    return simplify(times(first, getReciprocal(other)))
+operator fun Fraction.div(other: Fraction): Fraction {
+    return simplify(times(getReciprocal(other)))
 }
 
 fun getReciprocal(first: Fraction): Fraction {
@@ -40,4 +41,7 @@ fun simplify(first: Fraction): Fraction {
 
 fun toFloat(first: Fraction): Float {
     return first.numerator.toFloat() / first.denominator.toFloat()
+}
+fun main() {
+    println(Fraction(10,5) / Fraction(1, 2))
 }
