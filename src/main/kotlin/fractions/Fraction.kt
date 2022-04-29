@@ -1,6 +1,6 @@
 package fractions
 
-data class Fraction(var numerator: Int, var denominator: Int)
+data class Fraction(val numerator: Int, val denominator: Int)
 
 
 operator fun Fraction.plus(other: Fraction): Fraction {
