@@ -8,14 +8,14 @@ fun main() {
 }
 
 
-fun findGreatestCommonDenominator(A: Int, B: Int): Int {
-    val low = min(A, B)
-    return (low downTo 1).first {i -> A % i == 0 && B % i == 0 }
+fun findGreatestCommonDenominator(a: Int, b: Int): Int {
+    val low = min(a, b)
+    return (low downTo 1).first {i -> a % i == 0 && b % i == 0 }
 }
 
-fun findLowestCommonMultiple(A: Int, B: Int): Int {
-    return if (A == 0 || B == 0) 0 else {
-        val gcd: Int = findGreatestCommonDenominator(A, B)
-        abs(A * B) / gcd
+fun findLowestCommonMultiple(a: Int, b: Int): Int {
+    return if (a == 0 || b == 0) 0 else {
+        val gcd: Int = findGreatestCommonDenominator(a, b)
+        abs(a * b) / gcd
     }
 }
