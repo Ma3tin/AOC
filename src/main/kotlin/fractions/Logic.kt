@@ -1,5 +1,6 @@
 package fractions
 
+import kotlin.math.abs
 import kotlin.math.min
 
 fun main() {
@@ -9,22 +10,12 @@ fun main() {
 
 fun findGreatestCommonDenominator(A: Int, B: Int): Int {
     val low = min(A, B)
-    for (i in low downTo 1) if (A % i == 0 && B % i == 0) return i
-    return 1
+    return (low downTo 1).first {i -> A % i == 0 && B % i == 0 }
 }
 
 fun findLowestCommonMultiple(A: Int, B: Int): Int {
-    var low = 0
-    var high = 0
-    if (A < B) {
-        low = A
-        high = B
-    } else {
-        low = B
-        high = A
+    return if (A == 0 || B == 0) 0 else {
+        val gcd: Int = findGreatestCommonDenominator(A, B)
+        abs(A * B) / gcd
     }
-    for (i in 1..low) {
-        if (high * i % low == 0) return high * i
-    }
-    return A * B
 }
