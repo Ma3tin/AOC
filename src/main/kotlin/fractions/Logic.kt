@@ -1,24 +1,15 @@
 package fractions
 
+import kotlin.math.min
+
 fun main() {
     println(findGreatestCommonDenominator(8, 12))
 }
 
 
 fun findGreatestCommonDenominator(A: Int, B: Int): Int {
-    var low = 0
-    var high = 0
-    if (A < B) {
-        low = A
-        high = B
-    } else {
-        low = B
-        high = A
-    }
-
-    for (i in low downTo 1) {
-        if (A % i == 0 && B % i == 0) return i
-    }
+    val low = min(A, B)
+    for (i in low downTo 1) if (A % i == 0 && B % i == 0) return i
     return 1
 }
 

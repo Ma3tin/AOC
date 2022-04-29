@@ -44,4 +44,6 @@ fun toFloat(first: Fraction): Float {
 }
 fun main() {
     println(Fraction(10,5) / Fraction(1, 2))
+    println(Fraction(1,2) == Fraction(2, 4))
+    println(findGreatestCommonDenominator(12, -6))
 }
