@@ -1,7 +1,8 @@
 package LightsOut
 
-class Board {
-    var array = Array(5) { Array(5) {true} }
+class Board (private val array: Array<Array<Boolean>> ){
+
+
 
 
     fun hasWon(): Boolean {
@@ -20,13 +21,15 @@ class Board {
     fun play(coords: Coordinates): Board {
         val newArray = array.copyOf()
         if (canPlay(coords)) newArray[coords.y][coords.x] = !newArray[coords.y][coords.x]
-        if (canPlay(Coordinates(coords.x, coords.y - 1))) newArray[coords.y - 1][coords.x] = !newArray[coords.y - 1][coords.x]
-        if (canPlay(Coordinates(coords.x, coords.y + 1))) newArray[coords.y + 1][coords.x] = !newArray[coords.y + 1][coords.x]
-        if (canPlay(Coordinates(coords.x + 1, coords.y))) newArray[coords.y][coords.x + 1] = !newArray[coords.y][coords.x + 1]
-        if (canPlay(Coordinates(coords.x - 1, coords.y))) newArray[coords.y][coords.x - 1] = !newArray[coords.y][coords.x - 1]
+        if (canPlay(Coordinates(coords.x, coords.y - 1))) newArray[coords.y - 1][coords.x] =
+            !newArray[coords.y - 1][coords.x]
+        if (canPlay(Coordinates(coords.x, coords.y + 1))) newArray[coords.y + 1][coords.x] =
+            !newArray[coords.y + 1][coords.x]
+        if (canPlay(Coordinates(coords.x + 1, coords.y))) newArray[coords.y][coords.x + 1] =
+            !newArray[coords.y][coords.x + 1]
+        if (canPlay(Coordinates(coords.x - 1, coords.y))) newArray[coords.y][coords.x - 1] =
+            !newArray[coords.y][coords.x - 1]
 
-        val board = Board()
-        board.array = newArray
-        return board
+        return Board(newArray)
     }
 }
