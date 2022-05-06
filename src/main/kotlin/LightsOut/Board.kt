@@ -2,7 +2,7 @@ package LightsOut
 
 class Board (private val array: Array<Array<Boolean>> ){
 
-    val getArray: Array<Array<Boolean>> get() {return array}
+    val asArray: Array<Array<Boolean>> get() {return array}
 
 
 
