@@ -1,0 +1,4 @@
+package LightsOut
+
+class Ai {
+}
