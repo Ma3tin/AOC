@@ -2,7 +2,7 @@ package LightsOut
 
 class Human : Player {
     override fun nextMove(board: Board): Coordinates {
-        for (row in board.getArray) {
+        for (row in board.asArray) {
             for (square in row) {
                 if (square) print("◼️")
                 else print("◻️")

@@ -1,10 +1,15 @@
 package LightsOut
 
-class Board (private val array: Array<Array<Boolean>> ){
+class Board(private val array: Array<Array<Boolean>>) {
 
-    val asArray: Array<Array<Boolean>> get() {return array}
+    val asArray: Array<Array<Boolean>>
+        get() {
+            return copyArray()
+        }
 
-
+    private fun copyArray(): Array<Array<Boolean>> {
+        return Array(array.size) { array[it].copyOf() }
+    }
 
     fun hasWon(): Boolean {
         for (booleans in array) {
@@ -20,7 +25,7 @@ class Board (private val array: Array<Array<Boolean>> ){
     }
 
     fun play(coords: Coordinates): Board {
-        val newArray = Array(array.size) {array[it].copyOf()}
+        val newArray = copyArray()
         if (canPlay(coords)) newArray[coords.y][coords.x] = !newArray[coords.y][coords.x]
         if (canPlay(Coordinates(coords.x, coords.y - 1))) newArray[coords.y - 1][coords.x] =
             !newArray[coords.y - 1][coords.x]
