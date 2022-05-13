@@ -10,8 +10,9 @@ class Game {
         while (!board.hasWon()) {
             board = board.play(player.nextMove(board))
             countOfMoves++
-            if (board.hasWon()) println("Vyhrál jste!! a stačilo vám k tomu $countOfMoves")
+            if (board.hasWon()) println("Vyhrál jste!! a stačilo vám k tomu $countOfMoves tahů")
         }
+
         return countOfMoves
     }
 }

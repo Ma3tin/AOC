@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation("org.jetbrains.kotlinx:kotlinx-serializatio     n-json-jvm:1.3.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.3.2")
 }
 
 tasks.test {
