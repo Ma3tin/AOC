@@ -1,8 +1,6 @@
 package LightsOut
 
-import fractions.getReciprocal
-
-class Ai : Player {
+class AI : Player {
    private val LastLines = arrayOf(
         arrayOf(false, false, false, true, true),
         arrayOf(false, false, true, false, false),

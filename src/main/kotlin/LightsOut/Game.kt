@@ -2,7 +2,7 @@ package LightsOut
 
 class Game {
     private var board: Board = Board(Array(5){Array(5){false}})
-    private var player: Player = Ai()
+    private var player: Player = AI()
 
     fun runGame(): Int {
         board = board.play(Coordinates(0, 0))
